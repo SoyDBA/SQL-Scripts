@@ -11,7 +11,7 @@ GO
 -- =============================================
 -- Author:		Roberto Carrancio (www.soydba.es)
 -- Create date: 04/04/2024
--- Description:	Procedimiento para monitorizar a través del tiempo
+-- Description:	Procedimiento para monitorizar a travÃ©s del tiempo
 -- el crecimiento de las tablas de las BBDD.
 -- =============================================
 CREATE PROCEDURE [dbo].[MonitorTableUsage]
@@ -29,7 +29,7 @@ BEGIN
 		[Esquema]  VARCHAR(150) NOT NULL,
 		[Tabla]  VARCHAR(150) NOT NULL,
 		[Filas] BIGINT,
-		[TamañoTotalMb] FLOAT,
+		[TamaÃ±oTotalMb] FLOAT,
 		[EspacioDatosMb] FLOAT,
 		[EspacioIndicesMb] FLOAT,
 		[EspacioLibreMb] FLOAT,
@@ -40,7 +40,7 @@ END
 EXEC sp_MSforeachdb 'USE [?]
 		IF EXISTS (SELECT 1 FROM sys.databases WHERE is_read_only = 0 and name=''?'')
 		BEGIN
-		INSERT INTO [DBA].dbo.[TableUsage] ([Fecha], [BaseDatos], [Esquema], [Tabla], [Filas], [TamañoTotalMb], [EspacioDatosMb], [EspacioIndicesMb], [EspacioLibreMb]	)
+		INSERT INTO [DBA].dbo.[TableUsage] ([Fecha], [BaseDatos], [Esquema], [Tabla], [Filas], [TamaÃ±oTotalMb], [EspacioDatosMb], [EspacioIndicesMb], [EspacioLibreMb]	)
 		SELECT
 			GETDATE() Fecha
 			,''?'' as BaseDatos
@@ -82,7 +82,7 @@ GO
 -- =============================================
 -- Author:		Roberto Carrancio (www.soydba.es)
 -- Create date: 31/12/2018
--- Description:	Procedimiento para monitorizar a través del tiempo
+-- Description:	Procedimiento para monitorizar a travÃ©s del tiempo
 -- el crecimiento de los ficheros de las BBDD.
 -- =============================================
 CREATE PROCEDURE [dbo].[Monitorizar_Ficheros]
